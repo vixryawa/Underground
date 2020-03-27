@@ -139,10 +139,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CasStation.h" />
+    <ClInclude Include="TNode.h" />
+    <ClInclude Include="TTree.h" />
     <ClInclude Include="TransStation.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CasStation.cpp" />
+    <ClCompile Include="TTree.cpp" />
     <ClCompile Include="TransStation.cpp" />
     <ClCompile Include="test_CasStation.cpp" />
   </ItemGroup>

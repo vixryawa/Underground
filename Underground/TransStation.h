@@ -10,7 +10,7 @@ class TransStation : public CasStation {
     int tnumber;//!< колво пересадок
 
 public:
-    TransStation(int n, int traf, string name, TransStation* transf) :
+    TransStation(int n, int traf, string name, int tnumber) :
         CasStation(n, traf, name), tnumber(tnumber) {}
 
     void connect(TransStation& s2);
