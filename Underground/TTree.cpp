@@ -2,7 +2,8 @@
 #include<iostream>
 using namespace std;
 
-void TTree::Insert(int x) {
+template <class T>
+void TTree<T>::Insert(T x) {
     TNode** cur = &Root;
     while (*cur) {
         TNode& node = **cur;
@@ -19,15 +20,17 @@ void TTree::Insert(int x) {
     *cur = new TNode(x);
 }
 
-void TTree::print_tree_() {
+template <class T>
+void TTree<T>::print_tree_() {
     print_tree(Root, 0);
 }
 
-void TTree::print_tree(TNode* p, int level) {
+template <class T>
+void TTree<T>::print_tree(TNode<T> *p, int level) {
     if (p) {
-        TTree::print_tree(p->Left, level + 1);
+        TTree<T>::print_tree(p->Left, level + 1);
         for (int i = 0; i < level; i++) cout << "     ";
         cout << p->Key << endl;
-        TTree::print_tree(p->Right, level + 1);
+        TTree<T>::print_tree(p->Right, level + 1);
     }
 }

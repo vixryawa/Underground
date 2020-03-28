@@ -7,11 +7,10 @@
 //! описание
 class TransStation : public CasStation {
     vector <TransStation> transf;
-    int tnumber;//!< колво пересадок
 
 public:
-    TransStation(int n, int traf, string name, int tnumber) :
-        CasStation(n, traf, name), tnumber(tnumber) {}
+    TransStation(int n, int traf, string name) :
+        CasStation(n, traf, name) {}
 
     void connect(TransStation& s2);
     void print() const;

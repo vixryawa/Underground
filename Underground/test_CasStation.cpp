@@ -9,18 +9,27 @@
 
 void test_CasStation() {
     // создаём
-    CasStation s1(1, 2000, "Vykhino");
-    CasStation s2(2, 1500, "Kuzminki");
-    TransStation s3(3, 10000, "Pushkinskaya", 0);
-    TransStation s4(1, 12000, "Chekchovskaya", 0);
+    CasStation s1(4, 2000, "Vykhino");
+    CasStation s2(6, 1500, "Kuzminki");
+    TransStation s3(13, 10000, "Pushkinskaya");
+    CasStation s5(7, 500, "Tekstilschiki");
+    TransStation s4(1, 12000, "Chekchovskaya");
 
     s3.connect(s4);
     s4.connect(s3);
 
+    /*
     // тестирую дерево для интов
     int b[] = { 10, 25, 20, 6, 21, 8, 1, 30 };
-    TTree t1;
+    TTree<int> t1;
     for (int i = 0; i < 8; i++) t1.Insert(b[i]);
+    t1.print_tree_(); */
+
+    TTree<CasStation> t1;
+    t1.Insert(s2);
+    t1.Insert(s3);
+    t1.Insert(s1);
+    t1.Insert(s5);
     t1.print_tree_();
 
     assert(s1.get_n() == 1);

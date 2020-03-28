@@ -3,9 +3,10 @@
 
 #include"TNode.h"
 
+template <class T>
 class TTree {
 public:
-    TNode* Root;
+    TNode<T> *Root;
 
     TTree(): Root(0){}
 
@@ -13,7 +14,7 @@ public:
         DestroyNode(Root);
     }
 
-    static void DestroyNode(TNode* node) {
+    static void DestroyNode(TNode<T> *node) {
         if (node) {
             DestroyNode(node->Left);
             DestroyNode(node->Right);
@@ -21,9 +22,9 @@ public:
         }
     }
 
-    void Insert(int x);
+    void Insert(T x);
     void print_tree_();
-    void print_tree(TNode* p, int level);
+    void print_tree(TNode<T> *p, int level);
 
 };
 #endif //TTREE_H
