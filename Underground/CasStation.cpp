@@ -1,4 +1,6 @@
 #include<cstdio>
+#include <iostream>
+using namespace std;
 
 #include"CasStation.h"
 
@@ -15,4 +17,15 @@ bool operator> (const CasStation& s1, const CasStation& s2)
 bool operator== (const CasStation& s1, const CasStation& s2)
 {
     return s1.n == s2.n;
+}
+
+bool operator< (const CasStation& s1, const CasStation& s2)
+{
+    return !(s1 == s2 || s1 > s2);
+}
+
+ostream& operator<<(ostream& os, const CasStation& a)
+{
+    os << a.name;
+    return os;
 }

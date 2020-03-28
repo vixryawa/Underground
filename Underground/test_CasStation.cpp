@@ -18,19 +18,21 @@ void test_CasStation() {
     s3.connect(s4);
     s4.connect(s3);
 
-    /*
-    // тестирую дерево для интов
-    int b[] = { 10, 25, 20, 6, 21, 8, 1, 30 };
-    TTree<int> t1;
-    for (int i = 0; i < 8; i++) t1.Insert(b[i]);
-    t1.print_tree_(); */
-
     TTree<CasStation> t1;
     t1.Insert(s2);
     t1.Insert(s3);
     t1.Insert(s1);
     t1.Insert(s5);
     t1.print_tree_();
+
+    /*
+    // тестирую дерево для интов
+    int b[] = { 10, 25, 20, 6, 21, 8, 1, 30 };
+    TTree<int> t1;
+    for (int i = 0; i < 8; i++) t1.Insert(b[i]);
+    t1.print_tree_(); 
+
+
 
     assert(s1.get_n() == 1);
     assert(s1.get_traf() == 2000);
@@ -42,7 +44,7 @@ void test_CasStation() {
     // меняем с ошибкой
     t = s1.set_traf(-5000);
     assert(!t);
-    assert(s1.get_traf() == 3000);
+    assert(s1.get_traf() == 3000);*/
     if (s1 > s2) {
         s2.print();
         s1.print();

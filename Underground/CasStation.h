@@ -2,6 +2,7 @@
 #define CASSTATION_H
 
 #include <string>
+#include <iostream>
 using namespace std;
 
 class CasStation {
@@ -37,6 +38,8 @@ public:
 	//! перегрузка операторов
 	friend bool operator> (const CasStation &s1, const CasStation &s2);
 	friend bool operator== (const CasStation &s1, const CasStation &s2);
+	friend bool operator< (const CasStation& s1, const CasStation& s2);
+	friend ostream& operator<<(ostream& os, const CasStation& cs);
 
 	virtual void print() const;
 	virtual ~CasStation() {}
