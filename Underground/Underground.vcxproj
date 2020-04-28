@@ -139,6 +139,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CasStation.h" />
+    <ClInclude Include="Stretch.h" />
     <ClInclude Include="TNode.h" />
     <ClInclude Include="TTree.h" />
     <ClInclude Include="TransStation.h" />

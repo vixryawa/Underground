@@ -34,13 +34,34 @@ public:
 template <class T>
 void TTree<T>::Insert(T x) {
     TNode<T>** cur = &Root;
+    TNode<T>* l_child = nullptr;
+    TNode<T>* r_child = nullptr;
     while (*cur) {
         TNode<T>& node = **cur;
         if (x < node.Key) {
+            l_child = &node;
             cur = &node.Left;
+            cur.Right = node;
+            cur.rightThread = true;
+            cur.leftThread = false;
+            if (r_child)
+            {
+                cur.Left = &r_child;
+                cur.leftThread = true;
+            }
+
         }
         else if (x > node.Key) {
+            r_child = &node;
             cur = &node.Right;
+            node = &cur.Left;
+            cur.rightThread = false;
+            cur.leftThread = true;
+            if (l_child)
+            {
+                cur.Right = &l_child;
+                cur.rightThread = true;
+            }
         }
         else {
             return;

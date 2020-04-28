@@ -12,6 +12,8 @@ public:
 
     TNode* Left;
     TNode* Right;
+    bool rightThread;
+    bool leftThread;
 }; 
 /*
 struct TNode {
