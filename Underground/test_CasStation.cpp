@@ -6,6 +6,7 @@
 #include"TransStation.h"
 #include"TNode.h"
 #include"TTree.h"
+#include"Stretch.h"
 
 void test_CasStation() {
     // создаём

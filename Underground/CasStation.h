@@ -6,11 +6,11 @@
 using namespace std;
 
 class CasStation {
+
+public:
 	int n; //!< номер на линии
 	int traf; //!< пассажиропоток
 	string name; //!< название станции
-public:
-
 	//! создание станции
 	CasStation(int n, int traf, string name)
 		:n(n), traf(traf), name(name) {}
