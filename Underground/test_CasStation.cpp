@@ -25,6 +25,9 @@ void test_CasStation() {
     t1.Insert(s1);
     t1.Insert(s5);
     t1.print_tree_();
+    
+    Stretch strtch1(s2, s5, 3);
+    strtch1.print();
 
     /*
     // тестирую дерево для интов

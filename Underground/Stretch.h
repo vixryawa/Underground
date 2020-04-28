@@ -3,41 +3,43 @@
 
 #include <string.h>
 #include<iostream>
+#include"CasStation.h"
 
 using std::string;
 
-template <class T>
 class Stretch {
-	T st1; 
-	T st2; 
-	double time;  //! время прохождения перегона
+	CasStation st1; 
+	CasStation st2;
+	int time;  //! время прохождения перегона
 public:
-	Stretch(const T& s1, const T& s2, double time)
-		:s1(s1), s2(s2), time(time);
+	Stretch(const CasStation& st1, const CasStation& st2, int time)
+		:st1(st1), st2(st2), time(time) {}
 
-	const T& get_stat1();
+	void print() const;
 
-	const T& get_stat2();
+	const CasStation& get_stat1();
 
-	double get_time();
+	const CasStation& get_stat2();
+
+	int get_time();
 
 };
 
-template <class T>
+void Stretch::print() const{
+	printf("Stretch is %i min long and is between stations: ", this->time);
+	cout << this->st1 << endl;
+	cout << this->st2 << endl;
+}
 
-
-template <class T>
-const T& Stretch<T>::get_stat1() {
+const CasStation& Stretch::get_stat1() {
 	return this->st1;
 }
 
-template <class T>
-const T& Stretch<T>::get_stat2() {
+const CasStation& Stretch::get_stat2() {
 	return this->st2;
 }
 
-template <class T>
-double Stretch<T>::get_time() {
+int Stretch::get_time() {
 	return this->time;
 }
 #endif 
