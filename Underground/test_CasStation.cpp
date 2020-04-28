@@ -4,9 +4,10 @@
 
 #include"CasStation.h"
 #include"TransStation.h"
-#include"TNode.h"
-#include"TTree.h"
+//#include"TNode.h"
+//#include"TTree.h"
 #include"Stretch.h"
+#include"Transfer.h"
 
 void test_CasStation() {
     // создаём
@@ -18,16 +19,20 @@ void test_CasStation() {
 
     s3.connect(s4);
     s4.connect(s3);
+    Transfer transf1(s3, s4, 4);
+    transf1.print();
 
-    TTree<CasStation> t1;
+ /*   TTree<CasStation> t1;
     t1.Insert(s2);
     t1.Insert(s3);
     t1.Insert(s1);
     t1.Insert(s5);
     t1.print_tree_();
+    */
     
     Stretch strtch1(s2, s5, 3);
     strtch1.print();
+
 
     /*
     // тестирую дерево для интов
