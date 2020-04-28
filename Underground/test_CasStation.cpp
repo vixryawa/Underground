@@ -19,7 +19,7 @@ void test_CasStation() {
 
     s3.connect(s4);
     s4.connect(s3);
-    Transfer transf1(s3, s4, 4);
+    Transfer transf1(s3, s4, 4, 11000);
     transf1.print();
 
  /*   TTree<CasStation> t1;
