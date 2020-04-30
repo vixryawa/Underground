@@ -27,8 +27,7 @@ public:
 
 void Stretch::print() const{
 	printf("Stretch is %i min long and is between stations: ", this->time);
-	cout << this->st1 << endl;
-	cout << this->st2 << endl;
+	cout << this->st1 << " " << this->st2 << endl;
 }
 
 const CasStation& Stretch::get_stat1() {

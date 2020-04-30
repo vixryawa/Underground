@@ -30,8 +30,7 @@ public:
 
 void Transfer::print() const {
 	printf("Transfer is %i min long, traffic is %i and is between stations: ", this->time, this->traf);
-	cout << this->st1 << endl;
-	cout << this->st2 << endl;
+	cout << this->st1 << " " << this->st2 << endl;
 }
 
 const CasStation& Transfer::get_stat1() {
