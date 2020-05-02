@@ -159,7 +159,7 @@ void TTree<T>::find_neighbours(T x) {
 	cout << "Staions closest to the station " << p->Key; 
 	cout << " are " << (p->Left)->Key;
 	cout << " and " << (p->Right)->Key << endl;
-	printf("Mins away: %i %i\n", ((p->Left)->Key).get_upper(), x.get_upper());
+//	printf("Mins away: %i %i\n", ((p->Left)->Key).get_upper(), x.get_upper());
 //	cout << "Mins away: " << ((p->Left)->Key).get_upper() << " " << (p->Key).get_upper() << endl;
 }
 

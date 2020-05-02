@@ -13,10 +13,9 @@ public:
 	int n; //!< номер на линии
 	int traf; //!< пассажиропоток
 	string name; //!< название станции
-	int upper_stretch = 0;
+	//int upper_stretch = 0;
 
-	//Stretch upper;
-	//Stretch lower;
+	int n_added = 0;
 	//! создание станции
 	CasStation(int n = 0, int traf = 0, string name = "")
 		:n(n), traf(traf), name(name) {}
@@ -42,8 +41,8 @@ public:
 			return false;
 	} 
 
-	int get_upper();
-	void add_upper(int time);
+//	int get_upper();
+//	void add_upper(int time);
 
 	//! перегрузка операторов
 	friend bool operator> (const CasStation &s1, const CasStation &s2);

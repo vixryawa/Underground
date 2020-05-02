@@ -7,6 +7,7 @@
 
 #include"Stretch.h"
 #include"CasStation.h"
+#include"TTree.h"
 
 using std::string;
 
@@ -14,28 +15,34 @@ class Line {
 	TTree<CasStation> tree;
 	vector <CasStation> stations;
 	vector <Stretch> strcs;
+	vector <int> time;
+	int count;
 public:
-	Line(vector <CasStation> stations, vector <Stretch> srtcs);
+	Line(vector <int> time);
 
-	void add_station(CasStation& s1, Stretch& str1, Stretch& str2);
+	void add_station(CasStation& s1, int timeaway);
+
+	int time_between(CasStation& s1, CasStation& s2);
 
 	//	stats_to_tree(vector <CasStation> stations);
 };
 
-Line::Line(vector <CasStation> stations, <Stretch> strcs) {
-	for (int j = 0; j < int(stations.size()); j++) {
-		tree.Insert(stations[j]);
-	}
-	for (int k = 0; j < int(strcs.size()); k++) {
-		(strcs[k].get_stat1()).upper = strcs[k];
-		(strcs[k].get_stat2()).lower = strcs[k];
-	}
+Line::Line(vector <int> time) {
+	count = 0;
 }
 
-void Line::add_station(CasStation& s1, Stretch& str1, Stretch& str2) {
+void Line::add_station(CasStation& s1, int timeaway) {
 	tree.Insert(s1);
-	s1.lower = str1;
-	s1.upper = str2;
+	time.push_back(timeaway);
+	s1.n_added = count;
+	count++;
+}
+
+int Line::time_between(CasStation& s1, CasStation& s2) {
+	if (s1.n_added < s2.n_added)
+		return time[s2.n_added] - time[s1.n_added];
+	else
+		return time[s1.n_added] - time[s2.n_added];
 }
 
 #endif 

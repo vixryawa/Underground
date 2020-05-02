@@ -29,11 +29,12 @@ Stretch::Stretch(CasStation& st1, CasStation& st2, int time) {
 	this->st2 = st2;
 	this->time = time;
 
+	/*
 	if (st1 < st2)
 		st1.add_upper(time);
 	else
 		st2.add_upper(time);
-
+	*/
 }
 
 void Stretch::print() const{

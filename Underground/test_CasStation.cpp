@@ -12,12 +12,13 @@
 
 void test_CasStation() {
     // создаём
+    
     CasStation s1(4, 2000, "Vykhino");
     CasStation s2(6, 1500, "Kuzminki");
     TransStation s3(13, 10000, "Pushkinskaya");
     CasStation s5(7, 500, "Tekstilschiki");
     TransStation s4(1, 12000, "Chekchovskaya");
-
+    /*
     s3.connect(s4);
     s4.connect(s3);
     Transfer transf1(s3, s4, 4, 11000);
@@ -44,7 +45,7 @@ void test_CasStation() {
     t1.find_neighbours(s5);
 
 
-    /*
+    
     // тестирую дерево для интов
     int b[] = { 10, 25, 20, 6, 21, 8, 1, 30 };
     TTree<int> t1;
@@ -63,7 +64,7 @@ void test_CasStation() {
     // меняем с ошибкой
     t = s1.set_traf(-5000);
     assert(!t);
-    assert(s1.get_traf() == 3000);*/
+    assert(s1.get_traf() == 3000);
     if (s1 > s2) {
         s2.print();
         s1.print();
@@ -73,7 +74,18 @@ void test_CasStation() {
         s2.print();
     }
     s3.print();
-    s4.print();
+    s4.print();*/
+
+    vector <int> time;
+    Line line1(time);
+
+    line1.add_station(s1, 0);
+    line1.add_station(s2, 3);
+    line1.add_station(s3, 10);
+    line1.add_station(s5, 7);
+
+    printf("%i\n", line1.time_between(s2, s5));
+
 }
 
 int main() {
