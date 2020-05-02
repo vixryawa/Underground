@@ -5,12 +5,11 @@
 using namespace std;
 
 #include"TNode.h"
-#include"Stretch.h"
+#include"CasStation.h"
 
-template <class T>
 class TTree {
 public:
-	TNode<T>* Root;
+	TNode* Root;
 
 	TTree() : Root(0) {}
 
@@ -18,7 +17,7 @@ public:
 		DestroyNode(Root);
 	}
 
-	static void DestroyNode(TNode<T>* node) {
+	static void DestroyNode(TNode* node) {
 		if (node) {
 			if (!node->leftThread)
 				DestroyNode(node->Left);
@@ -28,33 +27,32 @@ public:
 		}
 	}
 
-	void Insert(T x);
+	void Insert(CasStation& x);
 	void print_tree_();
-	void print_tree(TNode<T>* p, int level);
-	void find_neighbours(T x);
-	TNode<T>* Search(T x, TNode<T>* p);
+	void print_tree(TNode* p, int level);
+	void find_neighbours(CasStation& x);
+	TNode* Search(CasStation& x, TNode* p);
 
 
 };
 
 
 //вставка нового узла
-template <class T>
-void TTree<T>::Insert(T x) {
+void TTree::Insert(CasStation& x) {
 	// указатель на то место,
 	// куда будет вставлен новый узел
-	TNode<T>** cur = &Root;
+	TNode** cur = &Root;
 	// узел, ближе всего к вставляемому снизу
-	TNode<T>* l_neighbour = nullptr;
+	TNode* l_neighbour = nullptr;
 	// узел, ближе всего к вставляемому сверху
-	TNode<T>* r_neighbour = nullptr;
+	TNode* r_neighbour = nullptr;
 
 	while (true) {
 		// если *cur==nullptr, то надо вставлять
 		// значение в узел и выходить.
 		if (*cur == nullptr) {
 			// создаём новый узел
-			*cur = new TNode<T>(x);
+			*cur = new TNode(x);
 			// создаём для него прошивки с каждой
 			// из сторон, если раньше при проходе по дереву
 			// были найдены узлы с меньшими (для левой)
@@ -122,44 +120,40 @@ void TTree<T>::Insert(T x) {
 }
 
 
-template <class T>
-void TTree<T>::print_tree_() {
+void TTree::print_tree_() {
 	print_tree(Root, 0);
 }
 
-template <class T>
-void TTree<T>::print_tree(TNode<T>* p, int level) {
+void TTree::print_tree(TNode* p, int level) {
 	if (p) {
 		if (!p->leftThread)
-			TTree<T>::print_tree(p->Left, level + 1);
+			TTree::print_tree(p->Left, level + 1);
 		for (int i = 0; i < level; i++) printf("     ");
 		cout << p->Key << endl;
 		if (!p->rightThread)
-			TTree<T>::print_tree(p->Right, level + 1);
+			TTree::print_tree(p->Right, level + 1);
 	}
 }
 
 //!функция поиска станции в дереве
-template <class T>
-TNode<T>* TTree<T>::Search(T x, TNode<T>* p) {
+TNode* TTree::Search(CasStation& x, TNode* p) {
 	if ((p->Key == x) || (p == nullptr)) {  //!если нашли, то возвращаем нужный узел
 		//cout << p->Key << endl;
 		return p;
 	}
 	if ((x < p->Key) && (p->leftThread == false)) //! если значение меньше, то вызываем поиск в левом поддереве 
-		return TTree<T>::Search(x, p->Left);
+		return TTree::Search(x, p->Left);
 	if ((x > p->Key) && (p->rightThread == false))				//! если значение больше, то вызываем поиск в правом поддереве 
-		return TTree<T>::Search(x, p->Right);
+		return TTree::Search(x, p->Right);
 }
 
 //функция поиска ближайших соседей
-template <class T>
-void TTree<T>::find_neighbours(T x) {
-	TNode<T>* p = Search(x, Root); //находим какому узлу соответствует нужная станция
+void TTree::find_neighbours(CasStation& x) {
+	TNode* p = Search(x, Root); //находим какому узлу соответствует нужная станция
 	cout << "Staions closest to the station " << p->Key; 
 	cout << " are " << (p->Left)->Key;
 	cout << " and " << (p->Right)->Key << endl;
-	cout << "Mins away: " << get_upper((p->Left)->Key) << " " << get_upper(p->Key) << endl;
+	cout << "Mins away: " << ((p->Left)->Key).get_upper() << " " << (p->Key).get_upper() << endl;
 }
 
 

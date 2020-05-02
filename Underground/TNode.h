@@ -1,14 +1,15 @@
 #ifndef TNODE_H
 #define TNODE_H
 
-template <class T>
+#include"CasStation.h"
+
 class TNode {
 public:
 
-    T Key;
+    CasStation Key;
 
-    TNode(T key): 
-        Key(key), Left(0), Right(0) {}
+    TNode(CasStation& Key):
+        Key(Key), Left(0), Right(0) {}
 
     TNode* Left;
     TNode* Right;

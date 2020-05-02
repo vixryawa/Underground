@@ -22,7 +22,7 @@ void test_CasStation() {
     Transfer transf1(s3, s4, 4, 11000);
     transf1.print();
 
-    TTree<CasStation> t1;
+    TTree t1;
     t1.Insert(s2);
     t1.Insert(s3);
     t1.Insert(s1);
