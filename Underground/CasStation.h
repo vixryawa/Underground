@@ -3,6 +3,8 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
+//#include"Stretch.h"
 using namespace std;
 
 class CasStation {
@@ -11,8 +13,9 @@ public:
 	int n; //!< номер на линии
 	int traf; //!< пассажиропоток
 	string name; //!< название станции
+	int upper_stretch = 0;
 	//! создание станции
-	CasStation(int n, int traf, string name)
+	CasStation(int n = 0, int traf = 0, string name = "")
 		:n(n), traf(traf), name(name) {}
 	//! получение номера на линии
 	int get_n() const {
@@ -35,6 +38,10 @@ public:
 		else
 			return false;
 	} 
+
+	int get_upper();
+	void add_upper(int time);
+
 	//! перегрузка операторов
 	friend bool operator> (const CasStation &s1, const CasStation &s2);
 	friend bool operator== (const CasStation &s1, const CasStation &s2);

@@ -5,7 +5,7 @@
 using namespace std;
 
 #include"TNode.h"
-//#include"Stretch.h"
+#include"Stretch.h"
 
 template <class T>
 class TTree {
@@ -142,14 +142,14 @@ void TTree<T>::print_tree(TNode<T>* p, int level) {
 //!функция поиска станции в дереве
 template <class T>
 TNode<T>* TTree<T>::Search(T x, TNode<T>* p) {
-	if (p->Key == x) {  //!если нашли, то возвращаем нужный узел
+	if ((p->Key == x) || (p == nullptr)) {  //!если нашли, то возвращаем нужный узел
 		//cout << p->Key << endl;
 		return p;
 	}
-	if (x < p->Key) //! если значение меньше, то вызываем поиск в левом поддереве 
-		TTree<T>::Search(x, p->Left);
-	else				//! если значение больше, то вызываем поиск в правом поддереве 
-		TTree<T>::Search(x, p->Right);
+	if ((x < p->Key) && (p->leftThread == false)) //! если значение меньше, то вызываем поиск в левом поддереве 
+		return TTree<T>::Search(x, p->Left);
+	if ((x > p->Key) && (p->rightThread == false))				//! если значение больше, то вызываем поиск в правом поддереве 
+		return TTree<T>::Search(x, p->Right);
 }
 
 //функция поиска ближайших соседей
@@ -157,8 +157,10 @@ template <class T>
 void TTree<T>::find_neighbours(T x) {
 	TNode<T>* p = Search(x, Root); //находим какому узлу соответствует нужная станция
 	cout << "Staions closest to the station " << p->Key; 
-	cout << "are " << p->Left;
-	cout << "and " << p->Right << endl;
+	cout << " are " << (p->Left)->Key;
+	cout << " and " << (p->Right)->Key << endl;
+	cout << "Mins away: " << get_upper((p->Left)->Key) << " " << get_upper(p->Key) << endl;
 }
+
 
 #endif //TTREE_H

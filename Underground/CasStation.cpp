@@ -9,6 +9,15 @@ void CasStation::print() const {
         name.c_str(), n, traf);
 }
 
+//рассто€ние до ближайшей бќльшей станции
+void CasStation::add_upper(int time) {
+    upper_stretch = time;
+}
+
+int CasStation::get_upper() {
+    return upper_stretch;
+}
+
 bool operator> (const CasStation& s1, const CasStation& s2)
 {
     return s1.n > s2.n;

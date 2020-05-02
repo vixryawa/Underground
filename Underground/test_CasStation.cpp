@@ -31,8 +31,16 @@ void test_CasStation() {
     
     t1.find_neighbours(s5);
     
-    Stretch strtch1(s2, s5, 3);
+    Stretch strtch3(s5, s3, 3);
+    Stretch strtch1(s2, s1, 2);
+    Stretch strtch2(s5, s2, 4);
+
+  //  printf("%i\n", s5.get_upper());
+  //  Stretch strtch4(s2, s5, 3);
+
     strtch1.print();
+
+
 
 
     /*

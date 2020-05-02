@@ -12,8 +12,7 @@ class Stretch {
 	CasStation st2;
 	int time;  //! время прохождения перегона
 public:
-	Stretch(const CasStation& st1, const CasStation& st2, int time)
-		:st1(st1), st2(st2), time(time) {}
+	Stretch(CasStation& st1, CasStation& st2, int time);
 
 	void print() const;
 
@@ -24,6 +23,18 @@ public:
 	int get_time();
 
 };
+
+Stretch::Stretch(CasStation& st1, CasStation& st2, int time) {
+	this->st1 = st1;
+	this->st2 = st2;
+	this->time = time;
+
+	if (st1 < st2)
+		st1.add_upper(time);
+	else
+		st2.add_upper(time);
+
+}
 
 void Stretch::print() const{
 	printf("Stretch is %i min long and is between stations: ", this->time);
@@ -41,4 +52,6 @@ const CasStation& Stretch::get_stat2() {
 int Stretch::get_time() {
 	return this->time;
 }
+
+
 #endif 
