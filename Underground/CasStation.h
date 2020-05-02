@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include"Stretch.h"
+//#include"Stretch.h"
 using namespace std;
 
 class CasStation {

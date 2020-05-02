@@ -15,7 +15,7 @@ class Line {
 	vector <CasStation> stations;
 	vector <Stretch> strcs;
 public:
-	Line(vector <CasStation> stations, <Stretch> srtcs);
+	Line(vector <CasStation> stations, vector <Stretch> srtcs);
 
 	void add_station(CasStation& s1, Stretch& str1, Stretch& str2);
 
