@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
-//#include"Stretch.h"
+#include"Stretch.h"
 using namespace std;
 
 class CasStation {
@@ -14,6 +14,9 @@ public:
 	int traf; //!< пассажиропоток
 	string name; //!< название станции
 	int upper_stretch = 0;
+
+	//Stretch upper;
+	//Stretch lower;
 	//! создание станции
 	CasStation(int n = 0, int traf = 0, string name = "")
 		:n(n), traf(traf), name(name) {}
