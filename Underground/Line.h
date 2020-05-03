@@ -10,14 +10,16 @@
 #include"TTree.h"
 
 using std::string;
-//!создание класса линия
+//создание класса линия
 class Line {
-	TTree<CasStation> tree; //! дерево для хранения станций
 	//vector <CasStation> stations;
 	//vector <Stretch> strcs;
+
 	vector <int> time; //! массив расстояний станций от начала ветки
 	int count; //! количество уже внесенных станций 
 public:
+	int number_ = -1;
+	TTree<CasStation> tree; //! дерево для хранения станций
 	Line();
 
 	void add_station(CasStation& s1, int timeaway);

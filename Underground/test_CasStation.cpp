@@ -9,7 +9,7 @@
 #include"Stretch.h"
 #include"Transfer.h"
 #include"Line.h"
-
+#include"Subway.h"
 
 
 void test_CasStation() {
@@ -20,6 +20,8 @@ void test_CasStation() {
     TransStation s3(13, 10000, "Pushkinskaya");
     CasStation s5(7, 500, "Tekstilschiki");
     TransStation s4(1, 12000, "Chekchovskaya");
+    CasStation s6(2, 9000, "Borovitskaya");
+    CasStation s7(3, 10000, "Serpukhovskaya");
 
 //проверка методов обычных станций
     assert(s1.get_n() == 4);
@@ -94,6 +96,22 @@ void test_CasStation() {
     assert(line1.time_between(s2, s5) == 4);
     assert(line1.time_between(s1, s2) == 3);
     assert(line1.time_between(s1, s3) == 10);
+
+//проверка класса метро
+    // добавляем вторую линию
+    Line line2;
+
+    line1.add_station(s4, 0);
+    line1.add_station(s6, 4);
+    line1.add_station(s7, 9);
+
+    //создаем метро
+    Subway subway;
+
+    subway.add_line(line1, line2, transf1);
+
+    printf("%i\n", subway.time_between(s2, s6));
+    assert(subway.time_between(s2, s6) == 15);
 
 
 }

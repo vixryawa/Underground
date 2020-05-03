@@ -33,6 +33,7 @@ public:
 	void print_tree(TNode<T>* p, int level);
 	void find_neighbours(T x);
 	TNode<T>* Search(T x, TNode<T>* p);
+	TNode<T>* Search_(T x);
 
 
 };
@@ -137,6 +138,11 @@ void TTree<T>::print_tree(TNode<T>* p, int level) {
 		if (!p->rightThread)
 			TTree<T>::print_tree(p->Right, level + 1);
 	}
+}
+
+template <class T>
+TNode<T>* TTree<T>::Search_(T x) {
+	return Search(x, Root);
 }
 
 //!функция поиска станции в дереве

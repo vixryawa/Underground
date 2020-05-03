@@ -13,14 +13,16 @@ class Transfer {
 	int time;  // время на переход
 	int traf; //пассариропоток
 public:
-	Transfer(const CasStation& st1, const CasStation& st2, int time, int traf)
+	Transfer();
+
+	Transfer(CasStation& st1, CasStation& st2, int time, int traf)
 		:st1(st1), st2(st2), time(time), traf(traf) {}
 
 	void print() const;
 
-	const CasStation& get_stat1();
+	CasStation& get_stat1();
 
-	const CasStation& get_stat2();
+	CasStation& get_stat2();
 
 	int get_time();
 
@@ -28,16 +30,21 @@ public:
 
 };
 
+Transfer::Transfer() {
+	time = 0;
+	traf = 0;
+}
+
 void Transfer::print() const {
 	printf("Transfer is %i min long, traffic is %i and is between stations: ", this->time, this->traf);
 	cout << this->st1 << " " << this->st2 << endl;
 }
 
-const CasStation& Transfer::get_stat1() {
+CasStation& Transfer::get_stat1() {
 	return this->st1;
 }
 
-const CasStation& Transfer::get_stat2() {
+CasStation& Transfer::get_stat2() {
 	return this->st2;
 }
 
