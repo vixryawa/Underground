@@ -8,14 +8,13 @@
 using namespace std;
 
 class CasStation {
-
-public:
+protected:
 	int n; //!< номер на линии
 	int traf; //!< пассажиропоток
 	string name; //!< название станции
 	//int upper_stretch = 0;
-
-	int n_added = 0;
+public:
+	int n_added = 0; //! номер при добавлении на линию
 	//! создание станции
 	CasStation(int n = 0, int traf = 0, string name = "")
 		:n(n), traf(traf), name(name) {}
