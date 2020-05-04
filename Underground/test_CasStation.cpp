@@ -67,8 +67,8 @@ void test_CasStation() {
     
 
  //проверка класса перегона   
-    Stretch strtch3(s5, s3, 3);
-    Stretch strtch1(s2, s1, 2);
+    Stretch strtch3(s5, s3, 5);
+    Stretch strtch1(s2, s1, 3);
     Stretch strtch2(s5, s2, 4);
 
    //printf("%i\n", s2.get_upper());
@@ -87,7 +87,7 @@ void test_CasStation() {
     //добавляем станции с временем следования от начала ветки
     line1.add_station(s1, 0);
     line1.add_station(s2, 3);
-    line1.add_station(s3, 10);
+    line1.add_station(s3, 12);
     line1.add_station(s5, 7);
 
 
@@ -95,7 +95,7 @@ void test_CasStation() {
     //printf("%i\n", line1.time_between(s2, s5));
     assert(line1.time_between(s2, s5) == 4);
     assert(line1.time_between(s1, s2) == 3);
-    assert(line1.time_between(s1, s3) == 10);
+    assert(line1.time_between(s1, s3) == 12);
 
 //проверка класса метро
     // добавляем вторую линию
@@ -108,10 +108,11 @@ void test_CasStation() {
     //создаем метро
     Subway subway;
 
-    subway.add_line(line1, line2, transf1);
+    subway.add_line(line2);
+    subway.add_transf(line1, line2, transf1);
 
-    printf("%i\n", subway.time_between(s2, s6));
-    assert(subway.time_between(s2, s6) == 15);
+   // printf("%i\n", subway.time_between(s2, s6));
+   // assert(subway.time_between(s2, s6) == 18);
 
 
 }

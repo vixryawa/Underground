@@ -18,6 +18,7 @@ class Line {
 	vector <int> time; //! массив расстояний станций от начала ветки
 	int count; //! количество уже внесенных станций 
 public:
+	vector <Transfer> transf;
 	int number_ = -1;
 	TTree<CasStation> tree; //! дерево для хранения станций
 	Line();
@@ -25,8 +26,6 @@ public:
 	void add_station(CasStation& s1, int timeaway);
 
 	int time_between(CasStation& s1, CasStation& s2);
-
-	//stats_to_tree(vector <CasStation> stations);
 };
 
 Line::Line() {

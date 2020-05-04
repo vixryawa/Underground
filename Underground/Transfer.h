@@ -28,6 +28,7 @@ public:
 
 	int get_traf();
 
+
 };
 
 Transfer::Transfer() {
@@ -55,4 +56,5 @@ int Transfer::get_time() {
 int Transfer::get_traf() {
 	return this->traf;
 }
+
 #endif 
